@@ -148,6 +148,8 @@ public class Convidado {
 		setPontoInstrucao(instrucao);
 		this.profissaoChefe = profissaoChefe;
 		this.empresaChefe = empresaChefe; 
+		setTotalPontos();
+		setCriterio();
 		this.status = status;
 		this.projeto = projeto;
 		this.empresa = empresa;
@@ -572,16 +574,35 @@ public class Convidado {
 		return totalPontos;
 	}
 
-	public void setTotalPontos(Integer totalPontos) {
-		this.totalPontos = totalPontos;
+	public void setTotalPontos() {
+		this.totalPontos = getPontoBanheiros() + getPontoMensalista()  
+			+ getPontoAutomovel() 
+			+ getPontoMicrocomputador() + getPontoLavaLoucas() 
+			+ getPontoGeladeira() + getPontoFreezer() + getPontoLavaRoupas() 
+			+ getPontoDvd() + getPontoMicroondas() 
+			+ getPontoMotocicletas() + getPontoSecadoraRoupas() 
+			+ getPontoAguaEncanada() + getPontoRuaPavimentada() 
+			+ getPontoInstrucao();
 	}
 
 	public String getCriterio() {
 		return criterio;
 	}
 
-	public void setCriterio(String criterio) {
-		this.criterio = criterio;
+	public void setCriterio() {
+		if(getTotalPontos() <= 16) {
+			this.criterio = "D/E"; 
+		}else if(getTotalPontos() <= 22) {
+			this.criterio = "C2"; 
+		}else if(getTotalPontos() <= 28) {
+			this.criterio = "C1"; 
+		}else if(getTotalPontos() <= 37) {
+			this.criterio = "B2"; 
+		}else if(getTotalPontos() <= 44) {
+			this.criterio = "B1";
+		}else if(getTotalPontos() <= 100){
+			this.criterio = "A";
+		}
 	}
 
 	public Status getStatus() {
@@ -679,10 +700,10 @@ public class Convidado {
 				"Qtde. Empregados mensalistas: " + contMensalista + " Pontos Mensalistas: " + getPontoMensalista());
 		System.out.println(
 				"Qtde. Automóveis de passeio: " + contAutomovel + " Pontos Automoveis: " + getPontoBanheiros());
-		System.out.println("Qtde. Microcomputador: " + contMicrocomputador + " Pontos Microcomputador"
+		System.out.println("Qtde. Microcomputador: " + contMicrocomputador + " Pontos Microcomputador: "
 				+ getPontoMicrocomputador());
-		System.out.println("Qtde. Lava loucas: " + contLavaLoucas + " Pontos Lava Loucas" + getPontoLavaLoucas());
-		System.out.println("Qtde. Geladeira: " + contGeladeira + "Pontos Geladeira: " + getPontoGeladeira());
+		System.out.println("Qtde. Lava loucas: " + contLavaLoucas + " Pontos Lava Loucas: " + getPontoLavaLoucas());
+		System.out.println("Qtde. Geladeira: " + contGeladeira + " Pontos Geladeira: " + getPontoGeladeira());
 		System.out.println("Qtde. Freezer: " + contFreezer + " Pontos Freezer: " + getPontoFreezer());
 		System.out.println("Qtde. Lava roupa: " + contLavaRoupa + " Pontos Lava Roupa: " + getPontoLavaRoupas());
 		System.out.println("Qtde. DVD: " + contDvd + " Pontos DVD: " + getPontoDvd());
@@ -701,6 +722,7 @@ public class Convidado {
 		System.out.println("Grau: " +getInstrucao() + " - Ponto de Instrucao: " +getPontoInstrucao());
 		System.out.println("-------------------------------------------");
 		System.out.println("Profissao Chefe: " +profissaoChefe + " - Empresa: " +empresaChefe);
+		System.out.println("Total de Pontos: " +getTotalPontos() + " Criterio: " +getCriterio());
 		System.out.println("-------------------------------------------");
 		System.out.println("Dados da Empresa");
 		System.out.println("Nome da empresa disponibilizada: " + empresa.getNomeEmpresa());

@@ -87,8 +87,6 @@ public class Main {
 		c1.addTelefone(t1); 
 		c1.addTelefone(t2); 
 		c1.informacaoCandidato();
-			
-		
+	
 	}
-
 }
