@@ -38,13 +38,13 @@ public class Main {
 		empr1.informacoesEmpresa();
 		System.out.println("=================================");
 		
-		Date nascimento = formatador.parse("19/03/1972"); 
+		Date nascimento = formatador.parse("25/10/2000"); 
 		
 		Pesquisador p1 = new Pesquisador(
-				1, "Andreia", formatador.parse("19/03/1972"), 
+				1, "John Doe", formatador.parse("25/10/2000"), 
 				Idade.calcularIdade(nascimento),
 				EstadoCivil.SOLTEIRO, "7743333222","2222222", 
-				"contato2pesquisa@gmail.com", "@##$%%", st1);
+				"johnpesquisa@hotmail.com", "@##$%%", st1);
 				
 		Telefone telPesq1 = new Telefone(1,"1112233", p1); 
 		Telefone telPesq2 = new Telefone(2,"9624555", p1);
@@ -55,7 +55,7 @@ public class Main {
 		empr1.informacaoProjetos();
 		System.out.println(proj);		
 		System.out.println("====================================");
-		Endereco e1 = new Endereco(1, "Lgo Lega", "77788","Perdizes", "3333", p1); 
+		Endereco e1 = new Endereco(1, "Lgo da Concordia", "77788","Centro", "3333", p1); 
 		p1.addProjetos(proj); 
 		p1.addEndereco(e1); 
 		p1.addTelefone(telPesq1); 
@@ -87,6 +87,35 @@ public class Main {
 		c1.addTelefone(t1); 
 		c1.addTelefone(t2); 
 		c1.informacaoCandidato();
+		
+		Date dataNasc = formatador.parse("22/07/1955"); 
+		
+		Instrucao inst1 = Instrucao.SUPERIOR_COMPLETO; 		
+				
+		Convidado c = new Convidado(
+				2,"Joao Penca", "777777778", dataNascimento, "222222", "joaoapenca@gkmal.com",
+				"Brasileiro", "30 anos", Idade.calcularIdade(dataNasc),EstadoCivil.SOLTEIRO,
+				'S','S',"Programador jr", 'N',"-","-", 3, 0,
+				1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1,
+				'S', 'S', inst1, "Analista","-", st1, proj, empr1, p1); 
+		//IdadeFilhos i1 = new IdadeFilhos(1,"2",c1);
+		//IdadeFilhos i2 = new IdadeFilhos(2,"5",c1); 
+		//Carro car1 = new Carro(1, "Fiat","Uno",2010,c1); 
+		Endereco endconv1s = new Endereco(1,"Mario","55 apto 222","Vila Guilherme","00000",c); 
+		Endereco endconv2s = new Endereco(2,"Rua Australia","22","Centro","111111",c);
+		Telefone tel1 = new Telefone(1,"55555555",c); 
+		Telefone tel2 = new Telefone(2,"44444444",c);
+		c.addCarro(carro1); 
+		c.addEndereco(endconv1s); 
+		c.addEndereco(endconv2s); 
+		c.addTelefone(tel1); 
+		c.addTelefone(tel2); 
+		c.informacaoCandidato();
+		
+		System.out.println("==================================================================");
+		p1.addConvidado(c1); 
+		p1.addConvidado(c); 
+		p1.dadosPesquisador(); 	
 	
 	}
 }

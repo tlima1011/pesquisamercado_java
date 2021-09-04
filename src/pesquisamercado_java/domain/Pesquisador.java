@@ -26,6 +26,8 @@ public class Pesquisador {
 	
 	private ArrayList<Projeto> projetos = new ArrayList<>();
 	
+	private ArrayList<Convidado> convidados = new ArrayList<>();
+	
 	public Pesquisador(Integer id, String nomePesquisador, Date dataNascimento, int idade, EstadoCivil estadoCivil, String cpf, String rg, String email, String senha, Status status) { 
 		this.idPesquisador = id;
 		this.nomePesquisador = nomePesquisador; 
@@ -131,6 +133,10 @@ public class Pesquisador {
 		projetos.add(projs); 
 	}
 	
+	public void addConvidado(Convidado conv) {
+		convidados.add(conv); 
+	}
+	
 	@Override
 	public String toString() {
 		return "Pesquisador [idPesquisador=" + idPesquisador + ", nomePesquisador=" + nomePesquisador
@@ -166,7 +172,10 @@ public class Pesquisador {
 			System.out.println("Valor a pagar: R$" + String.format("%.2f", projs.getValorPagar()));
 			System.out.println("Data do Projeto: " +formatador.format(projs.getDataRecrutamento()));
 		}
-		
+		System.out.println("Convidado(s): ");
+		for(Convidado convs : convidados) {
+			System.out.println("Nome: " +convs.getNomeConvidado());
+		}
 	}
 	
 	
