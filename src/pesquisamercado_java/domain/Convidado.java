@@ -69,6 +69,7 @@ public class Convidado {
 	private Instrucao instrucao;
 	private Integer pontoInstrucao;
 	private String profissaoChefe;
+	private String empresaChefe; 
 	private Integer totalPontos;
 	private String criterio;
 	private Status status;
@@ -97,7 +98,7 @@ public class Convidado {
 			int contBanheiro, int pontoBanheiros, int contMensalista, int contAutomovel, int contMicrocomputador,
 			int pontoMicrocomputador, int contLavaLoucas, int contGeladeira, int pontoGeladeira, int contFreezer,
 			int contLavaRoupa, int contDvd, int contMicroondas, int contMotocicleta, int contSecadoraRoupas,
-			Character aguaEncanada, Character ruaPavimentada, Instrucao instrucao, String profissaoChefe, Status status,
+			Character aguaEncanada, Character ruaPavimentada, Instrucao instrucao, String profissaoChefe, String empresaChefe, Status status,
 			Projeto projeto, Empresa empresa, Pesquisador pesquisador) {
 		this.idConvidado = idConvidado;
 		this.nomeConvidado = nomeConvidado;
@@ -146,6 +147,7 @@ public class Convidado {
 		this.instrucao = instrucao;
 		setPontoInstrucao(instrucao);
 		this.profissaoChefe = profissaoChefe;
+		this.empresaChefe = empresaChefe; 
 		this.status = status;
 		this.projeto = projeto;
 		this.empresa = empresa;
@@ -557,6 +559,14 @@ public class Convidado {
 	public void setProfissaoChefe(String profissaoChefe) {
 		this.profissaoChefe = profissaoChefe;
 	}
+	
+	public String getEmpresaChefe() {
+		return empresaChefe;
+	}
+
+	public void setEmpresaChefe(String empresaChefe) {
+		this.empresaChefe = empresaChefe;
+	}
 
 	public Integer getTotalPontos() {
 		return totalPontos;
@@ -689,6 +699,8 @@ public class Convidado {
 		System.out.println("-------------------------------------------");
 		System.out.println("Instrucao do Convidado ou do Chefe da Casa");
 		System.out.println("Grau: " +getInstrucao() + " - Ponto de Instrucao: " +getPontoInstrucao());
+		System.out.println("-------------------------------------------");
+		System.out.println("Profissao Chefe: " +profissaoChefe + " - Empresa: " +empresaChefe);
 		System.out.println("-------------------------------------------");
 		System.out.println("Dados da Empresa");
 		System.out.println("Nome da empresa disponibilizada: " + empresa.getNomeEmpresa());

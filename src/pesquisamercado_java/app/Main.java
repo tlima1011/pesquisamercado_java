@@ -67,15 +67,13 @@ public class Main {
 		Date dataNascimento = formatador.parse("25/03/2000"); 
 		
 		Instrucao inst = Instrucao.MEDIO_COMPLETO_SUPERIOR_INCOMPLETO; 		
-		//int pontoInstrucao = Instrucao.MEDIO_COMPLETO_SUPERIOR_INCOMPLETO;
-		
-		
+				
 		Convidado c1 = new Convidado(
 				1,"Luis Astolfo", "777777778", dataNascimento, "9964568", "luismane@gkmail.net",
 				"Brasileiro", "15 anos", Idade.calcularIdade(dataNascimento),EstadoCivil.CASADO,
 				'S','S',"Auxiliar Administrativo", 'S',"Medicina","Uninove", 1, 1,
 				1, 1, 2, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1,
-				'S', 'S', inst, "Oficial Administrativo", st1, proj, empr1, p1); 
+				'S', 'S', inst, "Oficial Administrativo","Itau", st1, proj, empr1, p1); 
 		IdadeFilhos i1 = new IdadeFilhos(1,"2",c1);
 		IdadeFilhos i2 = new IdadeFilhos(2,"5",c1); 
 		Carro carro1 = new Carro(1, "Fiat","Uno",2010,c1); 
@@ -88,9 +86,6 @@ public class Main {
 		c1.addEndereco(endconv1); 
 		c1.addTelefone(t1); 
 		c1.addTelefone(t2); 
-		
-		
-		
 		c1.informacaoCandidato();
 			
 		
